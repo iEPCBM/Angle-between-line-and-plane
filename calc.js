@@ -104,7 +104,7 @@ $(document).ready(function() {
       points_plane = extractPoints(martix_inputs.slice(0, 3));
       points_vec_AD = extractPoints([martix_inputs[0], martix_inputs[3]]);
       normal = getNormalOfPlane(...points_plane);
-      direction_vector = getVector(...points_vec_AD[0]);
+      direction_vector = getVector(...points_vec_AD);
       if (normal.every(item => item === 0)) throw "Модуль нормали плоскости (ABC) равен нулю.";
       if (direction_vector.every(item => item === 0)) throw "Модуль направляющего вектора прямой AD равен нулю. Возможно, координаты точек A и D совпадают.";
       angle = Math.asin(Math.abs(getScalarProduct(normal, direction_vector))

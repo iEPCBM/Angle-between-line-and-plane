@@ -12,6 +12,9 @@
       .table_matrix {
         padding: 25px 0
       }
+      #err_field {
+        color: #EE4433
+      }
     </style>
   </head>
   <body>
@@ -50,6 +53,7 @@
       </tbody>
     </table>
     <input type="button" id="bt_calc" value="Рассчитать!">
-    <p>Угол равен <span id="answer"></span></p>
+    <p>Угол равен: <span id="answer">0</span> градусов.</p>
+    <p id="err_field"></p>
   </body>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Поиск угла</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="calc.js"></script>
+    <style>
+      .table_input {
+        width: 50px
+      }
+      .table_matrix {
+        padding: 25px 0
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table_matrix">
+      <thead>
+        <th>Точка</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>Z</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A</td>
+          <td><input class="table_input" type="number" id="A_X" value=""></td>
+          <td><input class="table_input" type="number" id="A_Y" value=""></td>
+          <td><input class="table_input" type="number" id="A_Z" value=""></td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td><input class="table_input" type="number" id="B_X" value=""></td>
+          <td><input class="table_input" type="number" id="B_Y" value=""></td>
+          <td><input class="table_input" type="number" id="B_Z" value=""></td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td><input class="table_input" type="number" id="C_X" value=""></td>
+          <td><input class="table_input" type="number" id="C_Y" value=""></td>
+          <td><input class="table_input" type="number" id="C_Z" value=""></td>
+        </tr>
+        <tr>
+          <td>D</td>
+          <td><input class="table_input" type="number" id="D_X" value=""></td>
+          <td><input class="table_input" type="number" id="D_Y" value=""></td>
+          <td><input class="table_input" type="number" id="D_Z" value=""></td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="button" id="bt_calc" value="Рассчитать!">
+    <p>Угол равен <span id="answer"></span></p>
+  </body>
+</html>

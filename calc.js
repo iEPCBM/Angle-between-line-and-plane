@@ -31,7 +31,7 @@ function getVector(a, b) {
   return retVal;
 }
 
-function getNormalOfPlain(a, b, c) {
+function getNormalOfPlane(a, b, c) {
   let matrixPart = [];
   let vecAB, vecAC;
   let normal = [];
@@ -100,11 +100,11 @@ $(document).ready(function() {
   $("#bt_calc").click(function() {
     try {
       $("#err_wrapper").html("");
-      let points_plain, point_vec_AD, normal, direction_vector, angle;
-      points_plain = extractPoints(martix_inputs.slice(0, 3));
-      point_vec_AD = extractPoints([martix_inputs[0], martix_inputs[3]]);
-      normal = getNormalOfPlain(points_plain[0], points_plain[1], points_plain[2]);
-      direction_vector = getVector(point_vec_AD[0], point_vec_AD[1]);
+      let points_plane, points_vec_AD, normal, direction_vector, angle;
+      points_plane = extractPoints(martix_inputs.slice(0, 3));
+      points_vec_AD = extractPoints([martix_inputs[0], martix_inputs[3]]);
+      normal = getNormalOfPlane(...points_plane);
+      direction_vector = getVector(...points_vec_AD[0]);
       if (normal.every(item => item === 0)) throw "Модуль нормали плоскости (ABC) равен нулю.";
       if (direction_vector.every(item => item === 0)) throw "Модуль направляющего вектора прямой AD равен нулю. Возможно, координаты точек A и D совпадают.";
       angle = Math.asin(Math.abs(getScalarProduct(normal, direction_vector))

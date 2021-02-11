@@ -1,59 +1,105 @@
+<!--
+Copyright 2021 Rishat Kagirov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
 <!DOCTYPE html>
-<html lang="ru" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Поиск угла</title>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Угол между прямой AD и плоскостью треугольника ABC</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.slim.min.js"></script>
     <script type="text/javascript" src="calc.js"></script>
     <style>
+      html, body {
+        direction: ltr;
+      }
       .table_input {
         width: 50px
       }
       .table_matrix {
-        padding: 25px 0
+        padding: 25px 0;
       }
-      #err_field {
+      .table_matrix th {
+        font-style: italic;
+      }
+      .tb_point {
+        text-align: right;
+        font-weight: bold;
+        padding: 0 5px;
+      }
+      .form_wrapper {
+        display: inline-block;
+      }
+      p {
+        padding: 5px 0 0;
+        margin: 5px 2px
+      }
+      #bt_calc {
+        float: right;
+      }
+      #err_wrapper {
         color: #EE4433
       }
     </style>
   </head>
   <body>
-    <table class="table_matrix">
-      <thead>
-        <th>Точка</th>
-        <th>X</th>
-        <th>Y</th>
-        <th>Z</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>A</td>
-          <td><input class="table_input" type="number" id="A_X" value=""></td>
-          <td><input class="table_input" type="number" id="A_Y" value=""></td>
-          <td><input class="table_input" type="number" id="A_Z" value=""></td>
-        </tr>
-        <tr>
-          <td>B</td>
-          <td><input class="table_input" type="number" id="B_X" value=""></td>
-          <td><input class="table_input" type="number" id="B_Y" value=""></td>
-          <td><input class="table_input" type="number" id="B_Z" value=""></td>
-        </tr>
-        <tr>
-          <td>C</td>
-          <td><input class="table_input" type="number" id="C_X" value=""></td>
-          <td><input class="table_input" type="number" id="C_Y" value=""></td>
-          <td><input class="table_input" type="number" id="C_Z" value=""></td>
-        </tr>
-        <tr>
-          <td>D</td>
-          <td><input class="table_input" type="number" id="D_X" value=""></td>
-          <td><input class="table_input" type="number" id="D_Y" value=""></td>
-          <td><input class="table_input" type="number" id="D_Z" value=""></td>
-        </tr>
-      </tbody>
-    </table>
-    <input type="button" id="bt_calc" value="Рассчитать!">
-    <p>Угол равен: <span id="answer">0</span> градусов.</p>
-    <p id="err_field"></p>
+    <p>Калькулятор находит угол между прямой AD и плоскостью треугольника ABC.</p>
+    <p>Для рассчета введите координаты в таблицу.</p>
+    <div class="form_wrapper">
+      <table class="table_matrix">
+        <thead>
+          <th>Т.</th>
+          <th>x</th>
+          <th>y</th>
+          <th>z</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tb_point">A</td>
+            <td><input class="table_input" type="number" id="A_X" value=""></td>
+            <td><input class="table_input" type="number" id="A_Y" value=""></td>
+            <td><input class="table_input" type="number" id="A_Z" value=""></td>
+          </tr>
+          <tr>
+            <td class="tb_point">B</td>
+            <td><input class="table_input" type="number" id="B_X" value=""></td>
+            <td><input class="table_input" type="number" id="B_Y" value=""></td>
+            <td><input class="table_input" type="number" id="B_Z" value=""></td>
+          </tr>
+          <tr>
+            <td class="tb_point">C</td>
+            <td><input class="table_input" type="number" id="C_X" value=""></td>
+            <td><input class="table_input" type="number" id="C_Y" value=""></td>
+            <td><input class="table_input" type="number" id="C_Z" value=""></td>
+          </tr>
+          <tr>
+            <td class="tb_point">D</td>
+            <td><input class="table_input" type="number" id="D_X" value=""></td>
+            <td><input class="table_input" type="number" id="D_Y" value=""></td>
+            <td><input class="table_input" type="number" id="D_Z" value=""></td>
+          </tr>
+        </tbody>
+      </table>
+      <input type="button" id="bt_calc" value="Рассчитать!">
+    </div>
+    <p class="results">Угол равен: <span id="answer_rad_wrapper">0</span> радиан (<span id="answer_deg_wrapper">0</span> градусов).</p>
+    <p id="err_wrapper"></p>
   </body>
 </html>

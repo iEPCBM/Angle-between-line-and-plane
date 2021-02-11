@@ -67,6 +67,7 @@ function getVectorLength(vec) {
   }
   return Math.sqrt(vLen);
 }
+
 $(document).ready(function() {
   var martix_inputs = [
     [$("#A_X"), $("#A_Y"), $("#A_Z")],
@@ -74,6 +75,7 @@ $(document).ready(function() {
     [$("#C_X"), $("#C_Y"), $("#C_Z")],
     [$("#D_X"), $("#D_Y"), $("#D_Z")]
   ];
+  
   function checkData () {
     martix_inputs.forEach((point, i) => {
       point.forEach((item, j) => {
@@ -83,7 +85,8 @@ $(document).ready(function() {
       });
     });
     return true;
-  };
+  }
+
   function extractPoints(inputs) {
     let retVal = [];
     inputs.forEach((point, i) => {
@@ -97,6 +100,7 @@ $(document).ready(function() {
     });
     return retVal;
   }
+
   $("#bt_calc").click(function() {
     try {
       $("#err_wrapper").html("");

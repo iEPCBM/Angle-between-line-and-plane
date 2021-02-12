@@ -75,18 +75,6 @@ $(document).ready(function() {
     [$("#C_X"), $("#C_Y"), $("#C_Z")],
     [$("#D_X"), $("#D_Y"), $("#D_Z")]
   ];
-  
-  function checkData () {
-    martix_inputs.forEach((point, i) => {
-      point.forEach((item, j) => {
-        if (isNaN(parseFloat(item.val()))) {
-          return false;
-        }
-      });
-    });
-    return true;
-  }
-
   function extractPoints(inputs) {
     let retVal = [];
     inputs.forEach((point, i) => {
